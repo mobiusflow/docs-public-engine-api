@@ -1,3 +1,3 @@
 # Table of contents
 
-* [MobiusFlow Engine API Docs](README.md)
+* [MobiusFlow Engine Rest API](README.md)
