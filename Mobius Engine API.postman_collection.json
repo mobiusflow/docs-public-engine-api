@@ -1,0 +1,1065 @@
+{
+  "info": {
+    "_postman_id": "594d50f2-a698-4756-9f22-2baa29d73690",
+    "name": "Mobius Engine API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get Settings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/admin/settings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "admin", "settings"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"adm123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"bobz@home.com\",\n    \"password\": \"12345678\",\n    \"roles\": {\n        \"admin\": false,\n        \"flows\": true,\n        \"configure\": false,\n        \"write\": true,\n        \"read\": true\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI0NjkyZTQwZS1iZmUwLTRiNGUtOTQ0MS05NWM4YTBlOTEyMjgiLCJyZWZyZXNoVG9rZW4iOnRydWUsImlhdCI6MTY1MTE0OTQ5NiwiZXhwIjoxNjUxMTkyNjk2fQ.Sto5JFd0jprCoxiEc9MkCDZhC7uRX8LBW7HskMIJM_Q\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/refresh",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "refresh"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/user/bobz@home.com",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "user", "bobz@home.com"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Roles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/user/roles/cc54a1dd-1566-4cc4-b41c-5cfe2e0a7645",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "user", "roles", "cc54a1dd-1566-4cc4-b41c-5cfe2e0a7645"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set User Roles",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"roles\": {\n    \"admin\": true,\n    \"flows\": false,\n    \"configure\": false,\n    \"write\": true,\n    \"read\": true\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/user/roles/cc54a1dd-1566-4cc4-b41c-5cfe2e0a7645",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "user", "roles", "cc54a1dd-1566-4cc4-b41c-5cfe2e0a7645"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/user/b25d6e54-be43-457d-8348-3ee1e67727c4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "user", "b25d6e54-be43-457d-8348-3ee1e67727c4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set User Password",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"password\": \"abcdefghij\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/user/password/1ddeb342-fdc4-4291-be7c-18ec84f00c15",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "user",
+                "password",
+                "1ddeb342-fdc4-4291-be7c-18ec84f00c15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/auth/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "auth", "users"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Discover",
+      "item": [
+        {
+          "name": "Discover",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/discover/000001/020",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "discover", "000001", "020"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Node",
+      "item": [
+        {
+          "name": "Reset Node PSKs",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/node/resetpsks/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "node", "resetpsks", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Node Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/node/config/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "node", "config", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Node Config Tree",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/node/configtree/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "node", "configtree", "000001"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "Start Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/start/000001/021",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "start", "000001", "021"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stop Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/stop/000001/020",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "stop", "000001", "020"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service SID",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"newSID\": \"021\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/config/sid/000001/02A",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "config", "sid", "000001", "02A"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Service Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/config/000001/020",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "config", "000001", "020"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service Config",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"nr-connector\",\n    \"runAtStart\": true,\n    \"enabled\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/config/000001/020",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "config", "000001", "020"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Hot Reload Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/reload/000001/020",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "reload", "000001", "020"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"spid\": \"000E\",\n    \"name\": \"Test\",\n    \"enabled\": false,\n    \"runAtStart\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/service/000001/023",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "service", "000001", "023"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Objects",
+      "item": [
+        {
+          "name": "Patch Object",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"rids\": [\n        {\n            \"rid\": \"40\",\n            \"settings\": { \"min\": 22 }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/config/000001/020/0201/000A",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "config", "000001", "020", "0201", "000A"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Object Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/config/000001/020/0201/000a",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "config", "000001", "020", "0201", "000a"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read Object",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/000001/020/0201/000A",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "000001", "020", "0201", "000A"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read Resource",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/resource/000001/021/0201/0001/40",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": [
+                "api",
+                "v1",
+                "mobius",
+                "object",
+                "resource",
+                "000001",
+                "021",
+                "0201",
+                "0001",
+                "40"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Write Resource",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n    {\"r\": \"00\", \"p\": 15, \"v\": \"Hello\"},\n    {\"r\": \"40\", \"p\": 15, \"v\": 43.9}\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/resource/000001/021/0201/0001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "resource", "000001", "021", "0201", "0001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Object",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n    {\n        \"rid\": \"40\",\n        \"settings\": {\"min\": 30}\n    }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/000001/020/0201/000b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "000001", "020", "0201", "000b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Object",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/000001/020/0201/000a",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "000001", "020", "0201", "000a"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clone Object",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"copies\": 1,\n    \"start\": \"000A\"\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/object/clone/000001/020/0201/0004",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "object", "clone", "000001", "020", "0201", "0004"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscribe",
+      "item": [
+        {
+          "name": "Sub Resource COV",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uuid\": \"273bbd29-75ec-402d-84aa-4e32a97387a6\",\n    \"uri\": \"000001/020/+/0001/40\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/subscribe/resource",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "subscribe", "resource"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unsub Resource COV",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uuid\": \"273bbd29-75ec-402d-84aa-4e32a97387a6\",\n    \"uri\": \"000001/020/+/0001/40\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/subscribe/resource",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "subscribe", "resource"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/subscribe/log",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "subscribe", "log"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sub Service Status",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uuid\": \"ee6acf5f-28a9-48b0-a019-d4b71d186acb\",\n    \"uri\": \"000001/#\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/subscribe/servicestatus",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "subscribe", "servicestatus"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unsub Service Status",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uuid\": \"90389858-9af0-470e-beaf-3cc7e607dba8\",\n    \"uri\": \"000001/020\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/subscribe/servicestatus",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "subscribe", "servicestatus"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sub BCMD",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uuid\": \"1a05b9c4-89b0-4243-9c15-5f6eb71f0bf6\",\n    \"uri\": \"+/+/ENOCEAN_RADIO_ERP1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/subscribe/broadcastcommand",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "subscribe", "broadcastcommand"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Command",
+      "item": [
+        {
+          "name": "Send BCMD",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"rorg\": \"F6\",\n    \"db_0\": 100,\n    \"db_1\": 80,\n    \"db_2\": 60,\n    \"db_3\": 40,\n    \"uid\": \"12345678\",\n    \"status\": 23,\n    \"subTelNum\": 1,\n    \"dBm\": -5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/command/ENOCEAN_RADIO_ERP1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "command", "ENOCEAN_RADIO_ERP1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Profiles",
+      "item": [
+        {
+          "name": "Get service profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/service/000001/000E",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "service", "000001", "000E"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all service profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/service/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "service", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Object Profile Famalies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/object/families/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "object", "families", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Object Profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/object/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "object", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Object Profile by PID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/object/by-pid/000001/9999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "object", "by-pid", "000001", "9999"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Object Profile by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/object/by-name/000001/numericValue",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": [
+                "api",
+                "v1",
+                "mobius",
+                "profile",
+                "object",
+                "by-name",
+                "000001",
+                "numericValue"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Command Profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/command/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "command", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Command Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/profile/command/000001/ENOCEAN_RADIO_RAW",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "profile", "command", "000001", "ENOCEAN_RADIO_RAW"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Flows",
+      "item": [
+        {
+          "name": "Get Flows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/flow/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "flow", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set Flows",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n        {\n            \"id\": \"6aa8ab4d100707b8\",\n            \"type\": \"tab\",\n            \"label\": \"Pigs will fly\",\n            \"disabled\": false,\n            \"info\": \"\",\n            \"env\": []\n        },\n        {\n            \"id\": \"f3e2539aafeaa03c\",\n            \"type\": \"azureiotdevice\",\n            \"z\": \"6aa8ab4d100707b8\",\n            \"deviceid\": \"A00001_021_012D_0001\",\n            \"pnpModelid\": \"\",\n            \"connectiontype\": \"dps\",\n            \"authenticationmethod\": \"sas\",\n            \"iothub\": \"\",\n            \"isIotcentral\": true,\n            \"scopeid\": \"0ne004C4815\",\n            \"enrollmenttype\": \"device\",\n            \"saskey\": \"UhjPQxY299AdQ3/TVL2kHFIi36a/cpWTUT/0BJvZjAg=\",\n            \"certname\": \"\",\n            \"keyname\": \"\",\n            \"passphrase\": \"\",\n            \"protocol\": \"mqtt\",\n            \"retryInterval\": 10,\n            \"methods\": [],\n            \"DPSpayload\": \"\",\n            \"gatewayHostname\": \"\",\n            \"caname\": \"\",\n            \"cert\": \"\",\n            \"key\": \"\",\n            \"ca\": \"\",\n            \"x\": 920,\n            \"y\": 120,\n            \"wires\": [\n                []\n            ]\n        }\n    ]\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/flow/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "flow", "000001"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Licence",
+      "item": [
+        {
+          "name": "Get licence status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/licence/000001/status",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "licence", "000001", "status"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get licence code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/licence/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "licence", "000001"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set licence code",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"licenceCode\": \"4b77a8699cb1781326694f833cba5333194a258b1a74ee1a2cabb3d122ee5cde0e1dd89d41cd49879aba0aaa36e47b15\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9081/api/v1/mobius/licence/000001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9081",
+              "path": ["api", "v1", "mobius", "licence", "000001"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIyYTZlMzQzNC1kZjI4LTQ1NDQtOTYzYS1mZTViMmQ1NTg0ZWIiLCJyb2xlcyI6MjU1LCJpYXQiOjE2NTI0NTMwOTAsImV4cCI6MTY1MjQ1NjY5MH0.5So1MOgcu0fQn3XwJ3qMaVDyjldPqQCctv-GUjby6nQ",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "hid",
+      "value": "000001"
+    },
+    {
+      "key": "sid",
+      "value": "020"
+    }
+  ]
+}
