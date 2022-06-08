@@ -6,4 +6,4 @@
 
 ## Calling the Rest API with Postman
 
-To make testing of the API easier we have created a Postman collection. This can be downloaded from our Github repository ([download](Mobius%20Engine%20API.postman\_collection.json))&#x20;
+To make testing of the API easier we have created a Postman collection. This can be downloaded from our Github repository [here](Mobius%20Engine%20API.postman\_collection.json).
